@@ -36,6 +36,7 @@ Configure virtual routers:
 Hints:
 - you can connect to you virtual routers with command ```vagrant ssh rt0```
 - VyOS configuration documentation: https://docs.vyos.io/en/latest/
+- reboot VyOS routers after applying and saving configuration
 
 #### 5. Validate
 Try to ping rt2 eth2 interface from rt0 eth2 interface
