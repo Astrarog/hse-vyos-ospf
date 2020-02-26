@@ -18,7 +18,7 @@ You have the following topology:
                      +-----+
 ```
 
-Your objective is to configure OSPF between rt1/rt2/rt3 to enable connectity between 172.20.x.0/24 networks.
+Your objective is to configure OSPF between rt1/rt2/rt3 to enable connectivity between 172.20.x.0/24 networks.
 #### 1. Setup Vagrant
 Download from https://www.vagrantup.com/downloads.html and install
 #### 2. Pull repository
