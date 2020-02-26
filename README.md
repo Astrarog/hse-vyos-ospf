@@ -31,7 +31,7 @@ vagrant up
 #### 4. Configure virtual routers
 Configure virtual routers:
 - hostname
-- ospf zones
+- ospf areas
 
 Hints:
 - you can connect to you virtual routers with command ```vagrant ssh rt0```
