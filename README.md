@@ -4,17 +4,17 @@ You have the following topology:
 ```
 
                      +-----+
-172.20.10.10---eth3--| rt1 |--eth2--10.10.0.10--+
+172.20.10.10---eth2--| rt1 |--eth1--10.10.0.10--+
                      +-----+                    |
                                                 |
                                                 | 
                      +-----+                    |
-172.20.20.10---eth3--| rt2 |--eth2--10.10.0.20--|---10.10.0.0/24
+172.20.20.10---eth2--| rt2 |--eth1--10.10.0.20--|---10.10.0.0/24
                      +-----+                    |
                                                 |
                                                 |
                      +-----+                    |
-172.20.30.10---eth3--| rt3 |--eth2--10.10.0.30--+
+172.20.30.10---eth2--| rt3 |--eth1--10.10.0.30--+
                      +-----+
 ```
 
@@ -38,7 +38,7 @@ Configure virtual routers:
 Hints:
 - you can connect to you virtual routers with command ```vagrant ssh rt0```
 - VyOS configuration documentation: https://docs.vyos.io/en/latest/
-- reboot VyOS routers after applying and saving configuration
+- reboot VyOS routers after applying and saving configuration. The password is "vagrant".
 
 #### 5. Validate
 Try to ping rt2 eth2 interface from rt0 eth2 interface
