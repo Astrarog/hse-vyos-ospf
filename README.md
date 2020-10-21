@@ -47,14 +47,14 @@ Note:  The password is "vagrant".
 <th>
 <pre>
 +-----+
-| rt3 |
+| rt2 |
 +-----+
 </pre>
 </th>
 <th>
 <pre>
 +-----+
-| rt |
+| rt3 |
 +-----+
 </pre>
 </th>
@@ -65,13 +65,13 @@ Note:  The password is "vagrant".
 <pre>
 vagrant ssh rt1
 configure
+
 set system host-name rt1
 set interfaces ethernet eth1 address 10.10.0.10/24 
 set interfaces ethernet eth2 address 172.20.10.10/24 
+
 commit
 save
-exit
-exit
 </pre>
 </code>
 </td>
@@ -80,13 +80,13 @@ exit
 <pre>
 vagrant ssh rt2
 configure
+
 set system host-name rt2
 set interfaces ethernet eth1 address 10.10.0.20/24 
 set interfaces ethernet eth2 address 172.20.20.10/24 
+
 commit
 save
-exit
-exit
 </pre>
 </code>
 </td>
@@ -95,22 +95,88 @@ exit
 <pre>
 vagrant ssh rt3
 configure
+
 set system host-name rt3
 set interfaces ethernet eth1 address 10.10.0.30/24 
 set interfaces ethernet eth2 address 172.20.30.10/24 
+
 commit
 save
-exit
-exit
 </pre>
 </code>
 </td>
 </tr>
 </table>
 
-Configure virtual routers:
-- hostname
-- ospf areas
+
+##### Configure ospf areas
+
+<table>
+<tr>
+<th>
+<pre>
++-----+
+| rt1 |
++-----+
+</pre>
+</th>
+<th>
+<pre>
++-----+
+| rt2 |
++-----+
+</pre>
+</th>
+<th>
+<pre>
++-----+
+| rt3 |
++-----+
+</pre>
+</th>
+</tr>
+<tr>
+<td>
+<code>
+<pre>
+set protocols ospf area 0 network 10.10.0.0/24
+set protocols ospf parameters router-id 10.10.0.10
+set protocols ospf area 1 network 172.20.10.0/24
+
+commit
+save
+exit
+</pre>
+</code>
+</td>
+<td>
+<code>
+<pre>
+set protocols ospf area 0 network 10.10.0.0/24
+set protocols ospf parameters router-id 10.10.0.20
+set protocols ospf area 2 network 172.20.20.0/24
+
+commit
+save
+exit
+</pre>
+</code>
+</td>
+<td>
+<code>
+<pre>
+set protocols ospf area 0 network 10.10.0.0/24
+set protocols ospf parameters router-id 10.10.0.30
+set protocols ospf area 3 network 172.20.30.0/24
+
+commit
+save
+exit
+</pre>
+</code>
+</td>
+</tr>
+</table>
 
 
 #### 5. Validate
