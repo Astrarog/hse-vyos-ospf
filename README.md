@@ -210,13 +210,13 @@ exit
 </tr>
 <tr>
 <td>
-![rt1 pings rt3](img/1p3.gif)
+<img src="img/1p3.gif"  alt="rt1 pings rt3">
 </td>
 <td>
-![rt3 pings rt2](img/3p2.gif)
+<img src="img/3p2.gif"  alt="rt3 pings rt2">
 </td>
 <td>
-![rt2 pings rt1](img/2p1.gif)
+<img src="img/2p1.gif"  alt="rt2 pings rt1">
 </td>
 </tr>
 </table>
