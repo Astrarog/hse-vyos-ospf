@@ -9,7 +9,7 @@ You have the following topology:
                                                 |
                                                 | 
                      +-----+                    |
-172.20.20.10---eth2--| rt2 |--eth1--10.10.0.20--|---10.10.0.0/24
+172.20.20.10---eth2--| rt2 |--eth1--10.10.0.20--|--10.10.0.0/24
                      +-----+                    |
                                                 |
                                                 |
@@ -24,21 +24,94 @@ Download from https://www.virtualbox.org/wiki/Downloads and install
 #### 1. Setup Vagrant
 Download from https://www.vagrantup.com/downloads.html and install
 #### 2. Pull repository
-```git clone https://github.com/ivanlysogor/hse-vyos-ospf```
+```git clone https://github.com/Astrarog/hse-vyos-ospf.git```
 #### 3. Setup environment
 ```
 cd hse-vyos-ospf
 vagrant up
 ```
 #### 4. Configure virtual routers
+Note:  The password is "vagrant".
+
+#####Configure hostnames and ip adresses
+
+<table>
+<tr>
+<th>
+<pre>
++-----+
+| rt1 |
++-----+
+</pre>
+</th>
+<th>
+<pre>
++-----+
+| rt2 |
++-----+
+</pre>
+</th>
+<th>
+<pre>
++-----+
+| rt2 |
++-----+
+</pre>
+</th>
+</tr>
+<tr>
+<td>
+<code>
+<pre>
+vagrant ssh rt1
+configure
+set system host-name rt1
+set interfaces ethernet eth1 address 10.10.0.10/24 
+set interfaces ethernet eth2 address 172.20.10.10/24 
+commit
+save
+exit
+exit
+</pre>
+</code>
+</td>
+<td>
+<code>
+<pre>
+vagrant ssh rt2
+configure
+set system host-name rt2
+set interfaces ethernet eth1 address 10.10.0.20/24 
+set interfaces ethernet eth2 address 172.20.20.10/24 
+commit
+save
+exit
+exit
+</pre>
+</code>
+</td>
+<td>
+<code>
+<pre>
+vagrant ssh rt3
+configure
+set system host-name rt3
+set interfaces ethernet eth1 address 10.10.0.30/24 
+set interfaces ethernet eth2 address 172.20.30.10/24 
+commit
+save
+exit
+exit
+</pre>
+</code>
+</td>
+</tr>
+</table>
+
 Configure virtual routers:
 - hostname
 - ospf areas
 
-Hints:
-- you can connect to you virtual routers with command ```vagrant ssh rt0```
-- VyOS configuration documentation: https://docs.vyos.io/en/latest/
-- reboot VyOS routers after applying and saving configuration. The password is "vagrant".
 
 #### 5. Validate
 Try to ping rt2 eth2 interface from rt0 eth2 interface
