@@ -33,7 +33,7 @@ vagrant up
 #### 4. Configure virtual routers
 Note:  The password is "vagrant".
 
-#####Configure hostnames and ip adresses
+##### Configure hostnames and ip adresses
 
 <table>
 <tr>
@@ -47,14 +47,14 @@ Note:  The password is "vagrant".
 <th>
 <pre>
 +-----+
-| rt2 |
+| rt3 |
 +-----+
 </pre>
 </th>
 <th>
 <pre>
 +-----+
-| rt2 |
+| rt |
 +-----+
 </pre>
 </th>
